@@ -210,5 +210,3 @@ function imprimirObjeto(objeto) {
 }
 
 imprimirObjeto(moto);
-
-/* prueba commit */
