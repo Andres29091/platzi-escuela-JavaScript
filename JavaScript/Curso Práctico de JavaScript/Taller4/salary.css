@@ -1,0 +1,19 @@
+section {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3rem;
+    place-items: center;
+}
+
+section div {
+    display: flex;
+    flex-direction: column;
+}
+
+section label {
+    margin-top: 1rem;
+}
+
+section button {
+    margin-top: 2rem;
+}

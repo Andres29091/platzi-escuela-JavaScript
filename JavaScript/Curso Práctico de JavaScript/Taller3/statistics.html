@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./statistics.css">
+    <title>Average, mediana and media </title>
+</head>
+
+<body>
+    <!-- <nav>Felipe Marin</nav> -->
+    <header class="headerTitle">
+        <h1>Average, mediana and media</h1>
+    </header>   
+    <section class="mainSection">
+        <form id="formList" class="formListNumbers">
+            <h3>Insert one or more numbers separete with coma.</h3>
+            <label for="inputList">Numbers</label>
+            <input type="text" id="inputList">
+            <span id="validationInputList"></span>
+            <div class="containerButtons">
+                <button class="aggregateButton" type="button" onclick="aggregateNumberList()">Aggregate</button>
+                <button class="removeButton" type="button" onclick="removeNumberList()">Remove</button>
+            </div>
+            <p id="resultList"></p>
+        </form>
+        <form class="formCalculateButtons">
+            <div class="containerButtonsCalculus">
+                <button type="button" onclick="calculateMediaArithmetic()">Calculate average</button>
+                <span id="resultAverage"></span>
+                <button type="button" onclick="calculateMediana()">Calculate mediana</button>
+                <span id="resultMediana"></span>
+                <button type="button" onclick="calculateModa()">Calculate moda</button>
+                <span id="resulModa"></span>
+            </div>
+        </form>
+    </section>
+    <!-- <footer>FelipeMarin</footer> -->
+    <script src="./statistics.js"></script>
+</body>
+
+</html>

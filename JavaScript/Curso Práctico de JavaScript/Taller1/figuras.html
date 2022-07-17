@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Geometry calculator</title>
+    <style>
+        :root {
+            --white: #FFFFFF;
+            --input-grey: #F7F7F7;
+            --button-primary: #acd9b2;
+            --secundary-button: #5894ED;
+            --black: #000000;
+            --danger-button: #FF4745;
+            --warning-button: #d1d184;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .title-container {
+            text-align: center;
+        }
+
+        .title-container h1 {
+            border-bottom: 3px solid var(--black);
+            padding-bottom: 10px;
+            font-weight: 700;
+            background-image: linear-gradient(45deg, blue, var(--black));
+            color: transparent;
+            background-clip: text;
+            -webkit-background-clip: text;
+        }
+
+        .title-container p {
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        .main-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 40px;
+            height: 340px;
+            margin: 60px 100px 0 100px;
+        }
+
+        .container {
+            border: 2px solid var(--black);
+            border-radius: 10px;
+            background-color: var(--input-grey);
+        }
+
+        .container h3 {
+            display: flex;
+            justify-content: center;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-container label {
+            text-align: center;
+            margin-right: 6px;
+        }
+
+        .form-container input {
+            width: 50%;
+            display: flex;
+            align-self: center;
+            margin: 12px 0 12px 0;
+            border: none;
+            background: var(--white);
+            height: 28px;
+            border-radius: 5px;
+            border: 1px solid var(--black);
+        }
+
+        .form-container button {
+            width: 50%;
+            height: 30px;
+            align-self: center;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-square-button button:nth-child(2) {
+            background-color: var(--button-primary);
+        }
+
+        .form-square-button button:nth-child(3) {
+            background-color: var(--secundary-button);
+        }
+
+        .form-triangle-button button:nth-child(5) {
+            background-color: var(--button-primary);
+        }
+
+        .form-triangle-button button:nth-child(6) {
+            background-color: var(--secundary-button);
+        }
+
+        .form-triangle-button button:nth-child(7) {
+            background-color: var(--warning-button);
+        }
+
+        .form-circle-button button:nth-child(2) {
+            background-color: var(--button-primary);
+        }
+
+        .form-circle-button button:nth-child(3) {
+            background-color: var(--secundary-button);
+        }
+
+        .form-circle-button button:nth-child(4) {
+            background-color: var(--danger-button);
+        }
+
+        .form-container button:hover {
+            border: 2px solid black;
+            background-color: var(--white);
+            font-weight: bold;
+        }
+
+        .form-container p {
+            text-align: center;
+            font-size: 18px;
+            padding-top: 15px;
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="title-container">
+        <h1>
+            Geometry calculator
+        </h1>
+        <p>This is my first JavaScript workshop</p>
+    </header>
+    <section class="main-container">
+
+        <!-- square -->
+        <div class="container">
+            <h3>Calculate the area and perimeter of a square</h3>
+            <form class="form-container form-square-button">
+
+                <div class="form-group">
+                    <label for="sideSquare">Side:</label>
+                    <input id="sideSquare" type="number" placeholder="0">
+                </div>
+
+                <button type="button" onclick="calculateSquarePerimeter()">
+                    Calculate the perimeter
+                </button>
+
+                <button type="button" onclick="calculateSquareArea()">
+                    Calculate the area
+                </button>
+
+                <p id="resultSquare">Result: </p>
+            </form>
+        </div>
+        <!-- triangle -->
+        <div class="container">
+            <h3>Calculate the area and perimeter of a triangle.</h3>
+            <form class="form-container form-triangle-button">
+
+                <div class="form-group">
+                    <label for="sideTriangle1">Side 1:</label>
+                    <input id="sideTriangle1" type="number" placeholder="0">
+                </div>
+                <div class="form-group">
+                    <label for="sideTriangle1">Side 2:</label>
+                    <input id="sideTriangle2" type="number" placeholder="0">
+                </div>
+                <div class="form-group">
+                    <label for="baseTriangle">Base:</label>
+                    <input id="baseTriangle" type="number" placeholder="0">
+                </div>
+                <div class="form-group">
+                    <label for="heightTriangle">Height:</label>
+                    <input id="heightTriangle" type="number" placeholder="0">
+                </div>
+
+                <button type="button" onclick="calculateTrianglePerimeter()">
+                    Calculate the perimeter
+                </button>
+
+                <button type="button" onclick="calculateTriagleArea()">
+                    Calculate the area
+                </button>
+
+                <button type="button" onclick="calculateTriangleHeight()">
+                    Calculate the height
+                </button>
+
+                <p id="resultTriangle">Result: </p>
+            </form>
+        </div>
+        <!-- Circle -->
+        <div class="container">
+            <h3>Calculate the area and perimeter of a circle.</h3>
+            <form class="form-container form-circle-button">
+
+                <div class="form-group">
+                    <label for="radioCircle">Radio:</label>
+                    <input id="radioCircle" type="number" placeholder="0">
+                </div>
+
+                <button type="button" onclick="calculateCirclePerimeter()">
+                    Calculate the perimeter
+                </button>
+                
+                <button type="button" onclick="calculateCircleArea()">
+                    Calculate the area
+                </button>
+                
+                <button type="button" onclick="calculateCircleDiameter()">
+                    Calculate the diameter
+                </button>
+
+                <p id="resultCircle">Result: </p>
+            </form>
+        </div>
+
+    </section>
+    <script src="./figurasV2.js"></script>
+</body>
+
+</html>
